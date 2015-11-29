@@ -48,7 +48,7 @@ Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 	this.isFx4 = true;
 	this.isFx5 = true;
 	this.isServer = true;
-	this.browser = "v";
+	this.browser = "g";
 	
 	this.init = function(port) {
 		// ensure browser is online
