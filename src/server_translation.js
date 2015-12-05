@@ -256,7 +256,13 @@ Zotero.Server.Translation.Web.prototype = {
 	"select":function(translate, itemList, callback) {
 		this._selectCallback = callback;
 		this._itemList = itemList;
-		
+
+        // HACK: select all items
+        this.selectDone(itemList);
+
+        // This was the previous code:
+        
+        /*
 		if(this._data.items) {	// Items passed in request
 			this.selectDone(this._data.items);
 		} else {				// Items needed for response
@@ -268,7 +274,7 @@ Zotero.Server.Translation.Web.prototype = {
 				}
 				itemList = newItemList;
 			}
-			
+
 			// Send "Multiple Choices" HTTP response
 			this._cookieSandbox.clearTimeout();
 			this.sendResponse(300, "application/json", JSON.stringify(itemList));
@@ -276,6 +282,7 @@ Zotero.Server.Translation.Web.prototype = {
 			this._responseTime = Date.now();
 			Zotero.Server.Translation.waitingForSelection[this._data.sessionid] = this;
 		}
+        */
 	},
 	
 	/**
